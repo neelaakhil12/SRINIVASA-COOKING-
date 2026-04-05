@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | SRINIVASA COOKING AND CATERING</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F2E2A1',
+                        dark: '#000000',
+                        'dark-bg': '#121212',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white selection:bg-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto">
+        </a>
+        
+        <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
+            <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+            <a href="menu.html" class="text-gold border-b border-gold transition-colors">Menu</a>
+            <a href="about.html" class="hover:text-gold transition-colors">About</a>
+            <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
+            <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
+        </div>
+
+        <div class="lg:hidden">
+            <button id="mobile-menu-btn" class="text-gold text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
+        <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="hover:text-gold">Home</a>
+        <a href="menu.html" class="hover:text-gold">Menu</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+    </div>
+
+    <main class="pt-52">
+        <!-- Menu Section -->
+        <section id="menu" class="py-12 px-6 md:px-12">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Menu</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">A Culinary Journey</h3>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="menu-tab-btn active px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">North Indian</button>
+                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">South Indian</button>
+                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Continental</button>
+                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Tandoori</button>
+            </div>
+
+            <div id="menu-items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Javascript will populate this -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 px-6 md:px-12 border-t border-gray-900 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Column 1: Logo & About -->
+            <div data-aos="fade-up">
+                <img src="./assets/logo.png" alt="Srinivasa Catering" class="h-20 w-auto mb-6 opacity-90 transition-all">
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
+                </p>
+                <div class="flex space-x-5 text-xl">
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Services</h4>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-gold transition-colors">Wedding Catering</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Corporate Events</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Birthday Parties</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Special Occasions</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Private Dining</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Contact Us</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-gold mt-1"></i>
+                        <span>Main Road, Hyderabad, Telangana, India</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-gold"></i>
+                        <span>+91 99999 99999</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-gold"></i>
+                        <span>info@srinivasacatering.com</span>
+                    </li>
+                    <li class="pt-4">
+                        <a href="#" class="flex items-center gap-2 text-green-500 font-semibold hover:opacity-80 transition-opacity">
+                            <i class="fab fa-whatsapp text-2xl"></i> Chat with us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium tracking-wider uppercase">
+            <p>© 2026 SRINIVASA COOKING AND CATERING. All rights reserved.</p>
+            <p>Powered by <a href="https://codtechitsolutions.com/" target="_blank" class="text-gold hover:underline transition-all">CODTECH IT SOLUTIONS</a></p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-gold transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 1000, once: true });
+
+            const tabBtns = document.querySelectorAll('.menu-tab-btn');
+            const menuItems = [
+                {
+                    category: 'North Indian',
+                    items: [
+                        { name: 'Butter Chicken', img: './assets/butter-chicken.png', desc: 'Creamy tomato-based chicken curry with rich flavors.' },
+                        { name: 'Paneer Tikka', img: './assets/paneer-tikka.png', desc: 'Grilled paneer cubes marinated in spices.' },
+                        { name: 'Dal Makhani', img: './assets/dal-makhani.png', desc: 'Slow-cooked black lentils in creamy gravy.' },
+                        { name: 'Malai Kofta', img: './assets/malai-kofta.png', desc: 'Fried potato and paneer balls in rich tomato gravy.' },
+                        { name: 'Mutton Rogan Josh', img: './assets/mutton-rogan-josh.png', desc: 'Aromatic lamb curry with ginger and garlic.' }
+                    ]
+                },
+                {
+                    category: 'South Indian',
+                    items: [
+                        { name: 'Masala Dosa', img: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=2070&auto=format&fit=crop', desc: 'Crispy dosa with spiced potato filling.' },
+                        { name: 'Idli & Sambar', img: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=2070&auto=format&fit=crop', desc: 'Soft rice cakes with hot lentil vegetable stew.' }
+                    ]
+                },
+                {
+                    category: 'Continental',
+                    items: [
+                        { name: 'Grilled Salmon', img: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=2070&auto=format&fit=crop', desc: 'Juicy grilled salmon with herbs.' },
+                        { name: 'Pasta Alfredo', img: 'https://images.unsplash.com/photo-1645112481338-3560e949ac1a?q=80&w=2070&auto=format&fit=crop', desc: 'Creamy white sauce pasta delight.' }
+                    ]
+                },
+                {
+                    category: 'Tandoori',
+                    items: [
+                        { name: 'Tandoori Chicken', img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=2070&auto=format&fit=crop', desc: 'Spicy roasted chicken from clay oven.' },
+                        { name: 'Naan', img: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=2070&auto=format&fit=crop', desc: 'Soft and fluffy tandoor-baked bread.' }
+                    ]
+                }
+            ];
+
+            function updateMenu(category) {
+                const container = document.getElementById('menu-items-grid');
+                const data = menuItems.find(c => c.category === category);
+                if (!container || !data) return;
+                
+                container.innerHTML = '';
+                data.items.forEach((item, index) => {
+                    const card = `<div class="bg-black rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="h-56 bg-gray-800 overflow-hidden"><img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"></div>
+                        <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">${item.name}</h5><p class="text-gray-400 text-sm">${item.desc}</p></div>
+                    </div>`;
+                    container.insertAdjacentHTML('beforeend', card);
+                });
+                AOS.refresh();
+            }
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    updateMenu(btn.innerText.trim());
+                });
+            });
+
+            // Initialize with first category
+            updateMenu('North Indian');
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn) menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
+            if (closeBtn) closeBtn.onclick = () => mobileMenu.classList.add('hidden');
+        });
+    </script>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919999999999" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform pulse-animation" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

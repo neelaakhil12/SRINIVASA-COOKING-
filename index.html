@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRINIVASA COOKING AND CATERING | Premium Event Catering</title>
+    <meta name="description" content="Srinivasa Cooking and Catering offers high-end catering for weddings, corporate events, and parties with a premium black and gold experience.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F2E2A1',
+                        dark: '#000000',
+                        'dark-bg': '#121212',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white selection:bg-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto">
+        </a>
+        
+        <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
+            <a href="index.html" class="text-gold border-b border-gold transition-colors">Home</a>
+            <a href="menu.html" class="hover:text-gold transition-colors">Menu</a>
+            <a href="about.html" class="hover:text-gold transition-colors">About</a>
+            <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
+            <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
+        </div>
+
+        <div class="lg:hidden">
+            <button id="mobile-menu-btn" class="text-gold text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
+        <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="hover:text-gold">Home</a>
+        <a href="menu.html" class="hover:text-gold">Menu</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="./assets/hero.png" alt="Catering Hero" class="w-full h-full object-cover scale-110">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-4 max-w-4xl mt-16 md:mt-16" data-aos="fade-up" data-aos-duration="1500">
+                <p class="text-gold uppercase tracking-[0.3em] mb-4 text-xs md:text-base font-semibold">Exquisite Taste • Professional Excellence</p>
+                <h1 class="text-4xl md:text-8xl font-bold mb-4 leading-tight">Delicious Food for <span class="gold-gradient">Every Occasion</span></h1>
+                <p class="text-base md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                    Elevate your special moments with our premium catering services. From grand weddings to elite corporate events, we bring the royal taste to your table.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="menu.html" class="btn-premium px-8 py-4">Explore Menu</a>
+                    <a href="contact.html" class="border border-gold text-gold hover:bg-gold hover:text-black transition-all px-8 py-4 rounded-full font-semibold uppercase tracking-wider">Book My Event</a>
+                </div>
+            </div>
+            
+            <a href="#services" class="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 text-gold animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-6 md:px-12 bg-dark-bg">
+            <div class="text-center mb-20" data-aos="zoom-in">
+                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Offerings</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Premium Catering Services</h3>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Wedding -->
+                <div class="bg-black p-10 gold-border card-hover text-center" data-aos="fade-up">
+                    <i class="fas fa-heart service-icon"></i>
+                    <h4 class="text-xl font-bold mb-4">Wedding Catering</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Making your special day even more unforgettable with a feast fit for royalty.</p>
+                </div>
+                <!-- Corporate -->
+                <div class="bg-black p-10 gold-border card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-city service-icon"></i>
+                    <h4 class="text-xl font-bold mb-4">Corporate Events</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Impress your clients and colleagues with professional and delicious layouts.</p>
+                </div>
+                <!-- Birthday -->
+                <div class="bg-black p-10 gold-border card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-birthday-cake service-icon"></i>
+                    <h4 class="text-xl font-bold mb-4">Birthday Parties</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Celebrate life's milestones with delightful dishes that everyone loves.</p>
+                </div>
+                <!-- Special Occasions -->
+                <div class="bg-black p-10 gold-border card-hover text-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-star service-icon"></i>
+                    <h4 class="text-xl font-bold mb-4">Special Occasions</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Custom menus and exceptional service for housewarmings and gatherings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Preview Section -->
+        <section id="menu-preview" class="py-24 px-6 md:px-12 bg-black">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Taste of Excellence</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Featured Dishes</h3>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Butter Chicken -->
+                <div class="bg-dark-bg rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up">
+                    <div class="h-56 overflow-hidden"><img src="./assets/butter-chicken.png" alt="Butter Chicken" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">Butter Chicken</h5><p class="text-gray-400 text-sm">Creamy tomato-based chicken curry with rich flavors.</p></div>
+                </div>
+                <!-- Paneer Tikka -->
+                <div class="bg-dark-bg rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden"><img src="./assets/paneer-tikka.png" alt="Paneer Tikka" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">Paneer Tikka</h5><p class="text-gray-400 text-sm">Grilled paneer cubes marinated in spices.</p></div>
+                </div>
+                <!-- Malai Kofta -->
+                <div class="bg-dark-bg rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden"><img src="./assets/malai-kofta.png" alt="Malai Kofta" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">Malai Kofta</h5><p class="text-gray-400 text-sm">Fried potato and paneer balls in rich tomato gravy.</p></div>
+                </div>
+                <!-- Mutton Rogan Josh -->
+                <div class="bg-dark-bg rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 overflow-hidden"><img src="./assets/mutton-rogan-josh.png" alt="Mutton Rogan Josh" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">Mutton Rogan Josh</h5><p class="text-gray-400 text-sm">Aromatic lamb curry with ginger and garlic.</p></div>
+                </div>
+            </div>
+
+            <div class="text-center" data-aos="fade-up">
+                <a href="menu.html" class="btn-primary inline-flex items-center gap-2 border border-gold text-gold py-3 px-10 rounded-full hover:bg-gold hover:text-black transition-all font-bold uppercase tracking-widest text-sm">
+                    View Full Menu <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section id="about-preview" class="py-24 px-6 md:px-12 bg-dark-bg">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <div class="relative">
+                        <img src="./assets/founder.png" alt="Founder" class="rounded-3xl gold-border shadow-2xl float-anim">
+                        <div class="absolute -bottom-6 -right-6 bg-gold text-black p-6 rounded-2xl font-bold shadow-xl hidden md:block">
+                            15+ Years of <br> Culinary Art
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">About Our Legacy</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-6">The Art of <br> <span class="gold-gradient">Traditional Taste</span></h3>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Founded with a mission to redefine catering in India, we deliver more than just food; we provide a culinary experience that blends tradition with elite service.
+                    </p>
+                    <a href="about.html" class="btn-primary inline-flex items-center gap-2 border border-gold text-gold py-3 px-10 rounded-full hover:bg-gold hover:text-black transition-all font-bold uppercase tracking-widest text-sm">
+                        Our Story <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Preview Section -->
+        <section id="contact-preview" class="py-24 px-6 md:px-12 bg-black overflow-hidden">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/3" data-aos="fade-right">
+                    <h3 class="text-4xl font-bold mb-6">Book Your <br> <span class="gold-gradient">Masterpiece</span></h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">Ready to elevate your event? Let's discuss your custom menu today.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 text-gold">
+                            <i class="fas fa-phone-alt tet-2xl"></i>
+                            <span class="text-white font-semibold">+91 99999 99999</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-gold">
+                            <i class="fas fa-envelope text-2xl"></i>
+                            <span class="text-white font-semibold">info@srinivasacatering.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 bg-dark-bg p-8 md:p-12 rounded-3xl gold-border" data-aos="fade-left">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Full Name" class="w-full bg-black border border-gray-800 p-4 rounded-lg focus:border-gold outline-none text-white">
+                            <input type="tel" placeholder="Phone Number" class="w-full bg-black border border-gray-800 p-4 rounded-lg focus:border-gold outline-none text-white">
+                        </div>
+                        <textarea rows="4" placeholder="Briefly describe your event..." class="w-full bg-black border border-gray-800 p-4 rounded-lg focus:border-gold outline-none text-white"></textarea>
+                        <button type="submit" class="btn-premium w-full py-5 text-xl">Request Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 px-6 md:px-12 border-t border-gray-900 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Column 1: Logo & About -->
+            <div data-aos="fade-up">
+                <img src="./assets/logo.png" alt="Srinivasa Catering" class="h-20 w-auto mb-6 opacity-90 transition-all">
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
+                </p>
+                <div class="flex space-x-5 text-xl">
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Services</h4>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-gold transition-colors">Wedding Catering</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Corporate Events</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Birthday Parties</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Special Occasions</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Private Dining</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Contact Us</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-gold mt-1"></i>
+                        <span>Main Road, Hyderabad, Telangana, India</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-gold"></i>
+                        <span>+91 99999 99999</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-gold"></i>
+                        <span>info@srinivasacatering.com</span>
+                    </li>
+                    <li class="pt-4">
+                        <a href="#" class="flex items-center gap-2 text-green-500 font-semibold hover:opacity-80 transition-opacity">
+                            <i class="fab fa-whatsapp text-2xl"></i> Chat with us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium tracking-wider uppercase">
+            <p>© 2026 SRINIVASA COOKING AND CATERING. All rights reserved.</p>
+            <p>Powered by <a href="https://codtechitsolutions.com/" target="_blank" class="text-gold hover:underline transition-all">CODTECH IT SOLUTIONS</a></p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-gold transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919999999999" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform pulse-animation" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+            closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Sticky Nav Change
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-2xl');
+            } else {
+                nav.classList.remove('shadow-2xl');
+            }
+        });
+    </script>
+</body>
+</html>

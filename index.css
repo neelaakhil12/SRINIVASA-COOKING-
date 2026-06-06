@@ -525,6 +525,11 @@ body.about-page .stats-bar p {
         width: 0px !important;
     }
 
+    /* Reduce stats bar numbers size on mobile */
+    .stats-bar p.text-4xl {
+        font-size: 1.75rem !important;
+    }
+
     /* General sections — reduce vertical padding */
     section {
         padding-left: 1rem !important;

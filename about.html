@@ -16,18 +16,48 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { gold: '#D4AF37', 'dark-bg': '#121212' } } } }
     </script>
+    <style>
+        /* ===== FORCE ALL TEXT VISIBLE ON ABOUT PAGE ===== */
+        main h3, main h4, main h5 {
+            color: #ffffff !important;
+        }
+        main p {
+            color: #d1d5db !important;
+        }
+        /* Keep gold labels gold */
+        main h2.text-gold,
+        main p.text-gold,
+        main span.text-gold {
+            color: #D4AF37 !important;
+        }
+        /* Keep gold gradient headings */
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37, #F2E2A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Stats bar - black text on gold bg */
+        .stats-bar p { color: #000000 !important; }
+        /* Story director name */
+        .director-name { color: #ffffff !important; }
+        /* Service tiles */
+        main a p { color: #ffffff !important; }
+        /* CTA section */
+        .cta-white { color: #ffffff !important; }
+        .cta-gray { color: #d1d5db !important; }
+    </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-white text-gray-900">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav py-4 px-6 md:px-12 flex justify-between items-center">
         <a href="index.html" class="flex items-center"><img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto"></a>
         
         <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
-            <a href="index.html" class="hover:text-gold transition-colors">Home</a>
-            <a href="menu.html" class="hover:text-gold transition-colors">Menu</a>
+            <a href="index.html" class="hover:text-gold transition-colors" style="color:#ffffff">Home</a>
+            <a href="menu.html" class="hover:text-gold transition-colors" style="color:#ffffff">Services</a>
             <a href="about.html" class="text-gold border-b border-gold transition-colors">About</a>
-            <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
+            <a href="contact.html" class="hover:text-gold transition-colors" style="color:#ffffff">Contact</a>
             <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
         </div>
 
@@ -41,47 +71,248 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
         <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
-        <a href="index.html" class="hover:text-gold">Home</a>
-        <a href="menu.html" class="hover:text-gold">Menu</a>
-        <a href="about.html" class="hover:text-gold">About</a>
-        <a href="contact.html" class="hover:text-gold">Contact</a>
+        <a href="index.html" class="hover:text-gold" style="color:#ffffff">Home</a>
+        <a href="menu.html" class="hover:text-gold" style="color:#ffffff">Services</a>
+        <a href="about.html" class="hover:text-gold" style="color:#ffffff">About</a>
+        <a href="contact.html" class="hover:text-gold" style="color:#ffffff">Contact</a>
     </div>
 
-    <main class="pt-52">
-        <section id="about" class="py-24 px-6 md:px-12">
+    <main class="pt-0">
+
+        <!-- About Hero Banner -->
+        <section class="relative h-[55vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="/assets/hero.png" alt="About Srinivasa Catering" class="w-full h-full object-cover scale-110">
+                <div class="absolute inset-0 bg-black/70"></div>
+            </div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mt-24" data-aos="fade-up">
+                <p class="text-gold uppercase tracking-[0.3em] mb-3 text-xs md:text-sm font-semibold">Our Story</p>
+                <h1 class="text-4xl md:text-7xl font-bold text-white leading-tight mb-4">About <span class="gold-gradient">Srinivasa</span><br>Cooking & Catering</h1>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar bg-gold py-10 px-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-black">
+                <div data-aos="zoom-in">
+                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">15+</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Years of Experience</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">5000+</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Events Catered</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">50,000+</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Happy Guests</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">7</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Catering Services</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-24 px-6 md:px-12 bg-dark-bg">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                 <div class="w-full md:w-1/2" data-aos="zoom-out">
                     <div class="relative">
-                        <img src="/assets/founder.png" alt="Founder" class="rounded-3xl gold-border shadow-2xl float-anim">
-                        <div class="absolute -bottom-6 -right-6 bg-gold text-black p-6 rounded-2xl font-bold shadow-xl">
+                        <img src="/assets/founder.png" alt="Founder" class="rounded-3xl gold-border shadow-2xl float-anim w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-gold text-black p-6 rounded-2xl font-bold shadow-xl hidden md:block">
                             15+ Years of <br> Culinary Art
                         </div>
                     </div>
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Roots</h2>
-                    <h3 class="text-4xl md:text-5xl font-bold mb-6">Famous in <span class="gold-gradient">Indupalli Village</span></h3>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Srinivasa Cooking & Caterings are renowned for excellence in <strong>Indupalli village near Vijayawada, Krishna District</strong>. For years, we have been the first choice for wedding auspicious events and grand celebrations.
+                    <h3 class="text-4xl md:text-5xl font-bold mb-6">Famous in Indupalli Village</h3>
+                    <p class="leading-relaxed mb-5">
+                        Srinivasa Cooking &amp; Caterings are renowned for excellence in <strong>Indupalli village near Vijayawada, Krishna District</strong>. For years, we have been the first choice for wedding auspicious events and grand celebrations.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-8">
-                        Our journey in <strong>Cooking & Catering by Indupalli</strong> is built on a foundation of authentic tradition and elite service. We bring the rich culinary heritage of the Krishna district to every plate we serve, ensuring your special moments are truly auspicious.
+                    <p class="leading-relaxed mb-5">
+                        Our journey in <strong>Cooking &amp; Catering by Indupalli</strong> is built on a foundation of authentic tradition and elite service. We bring the rich culinary heritage of the Krishna district to every plate we serve, ensuring your special moments are truly auspicious.
                     </p>
-                    
-                    <div class="border-t border-gray-800 pt-8 mt-8">
+                    <p class="leading-relaxed mb-8">
+                        From humble beginnings serving our local community, we have grown into a trusted name across Hyderabad and Ranga Reddy district — delivering freshly prepared, hygienically maintained, and lovingly cooked food for every type of celebration.
+                    </p>
+                    <div class="border-t border-gray-300 pt-8">
                         <p class="font-bold text-xl mb-1">Elite Culinary Director</p>
-                        <p class="text-gold uppercase tracking-widest text-xs">Cooking & Catering by Indupalli</p>
+                        <p class="text-gold uppercase tracking-widest text-xs">Cooking &amp; Catering by Indupalli</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Mission & Values -->
+        <section class="py-24 px-6 md:px-12" style="background:#f9fafb">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">What Drives Us</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-4">Our Mission &amp; Values</h3>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-10 rounded-2xl shadow-md border border-gray-200 card-hover text-center" data-aos="fade-up">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF9E7">
+                            <i class="fas fa-fire-flame-curved text-2xl" style="color:#D4AF37"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Authentic Flavours</h4>
+                        <p class="text-sm leading-relaxed text-gray-600">We preserve the original recipes passed down through generations, using traditional spices, fresh ingredients, and time-honoured cooking techniques that make every bite memorable.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-2xl shadow-md border border-gray-200 card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF9E7">
+                            <i class="fas fa-shield-heart text-2xl" style="color:#D4AF37"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Hygiene &amp; Quality</h4>
+                        <p class="text-sm leading-relaxed text-gray-600">Every dish is prepared under strict hygiene standards with premium-quality ingredients. We maintain complete transparency from kitchen to your event, ensuring freshness every time.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-2xl shadow-md border border-gray-200 card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF9E7">
+                            <i class="fas fa-handshake text-2xl" style="color:#D4AF37"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Customer First</h4>
+                        <p class="text-sm leading-relaxed text-gray-600">We believe every event is unique. Our team works closely with you to understand your needs, customize menus, and deliver a seamless, stress-free catering experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-24 px-6 md:px-12" style="background:#ffffff">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">The Srinivasa Difference</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-4">Why Choose Us?</h3>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-utensils text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Traditional Andhra &amp; Telugu Cuisine</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">Specializing in authentic Telugu wedding feasts, from Pesarattu to Pulihora, Pappu, and all the traditional side dishes that make every celebration complete.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-users text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Experienced &amp; Trained Staff</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">Our team of expert chefs and service staff have handled events of all sizes — from intimate 50-person gatherings to large-scale 2000+ guest weddings.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-truck-fast text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Reliable &amp; On-Time Delivery</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">We understand the importance of timing at events. Our logistics team ensures every dish arrives hot, fresh, and on schedule — no delays, no excuses.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-indian-rupee-sign text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Transparent &amp; Affordable Pricing</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">We offer flexible packages for all budgets without compromising on quality or taste. Get a customized quote tailored to your event size and requirements.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-leaf text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Pure Veg &amp; Non-Veg Options</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">We cater to all preferences with dedicated Veg and Non-Veg menus, prepared separately to ensure purity and taste for every guest at your event.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 bg-white p-8 rounded-2xl shadow-md border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style="background:#FEF9E7">
+                            <i class="fas fa-star text-xl" style="color:#D4AF37"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Trusted by Thousands</h5>
+                            <p class="text-sm leading-relaxed text-gray-600">Over 5000 successful events and 50,000+ happy guests speak for our reputation. We are proud to be the most referred catering service in Hyderabad &amp; Krishna district.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Services Overview -->
+        <section class="py-24 px-6 md:px-12 bg-black">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">What We Offer</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold">Our Services</h3>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <a href="wedding-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up">
+                        <i class="fas fa-heart text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Wedding Catering</p>
+                    </a>
+                    <a href="corporate-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="50">
+                        <i class="fas fa-city text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Corporate Events</p>
+                    </a>
+                    <a href="birthday-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-birthday-cake text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Birthday Parties</p>
+                    </a>
+                    <a href="special-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="150">
+                        <i class="fas fa-star text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Special Occasions</p>
+                    </a>
+                    <a href="bulk-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-boxes-stacked text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Bulk Food Supply</p>
+                    </a>
+                    <a href="curry-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="250">
+                        <i class="fa-solid fa-bowl-food text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Daily Curry Point</p>
+                    </a>
+                    <a href="festival-catering.html" class="bg-dark-bg p-6 rounded-xl gold-border card-hover block" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-om text-gold text-3xl mb-3"></i>
+                        <p class="font-semibold text-sm">Festival Catering</p>
+                    </a>
+                    <a href="contact.html" class="bg-gold p-6 rounded-xl card-hover block" data-aos="fade-up" data-aos-delay="350">
+                        <i class="fas fa-phone-alt text-black text-3xl mb-3"></i>
+                        <p class="font-bold text-sm text-black">Book Now</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 px-6 md:px-12 bg-dark-bg text-center">
+            <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Ready to Celebrate?</h2>
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Let's Create an <span class="gold-gradient">Unforgettable</span> Experience</h3>
+                <p class="text-gray-400 leading-relaxed mb-10">Whether it's a royal wedding, a corporate lunch, or a festive celebration — we're here to make every bite count. Contact us today for a free customized quote.</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-premium px-10 py-4 text-base">Book Your Event</a>
+                    <a href="menu.html" class="border border-gold text-gold hover:bg-gold hover:text-black transition-all px-10 py-4 rounded-full font-semibold uppercase tracking-wider">View All Services</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="py-20 px-6 md:px-12 border-t border-gray-900 bg-black">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Column 1: Logo & About -->
             <div data-aos="fade-up">
-                <img src="/assets/logo.png" alt="Srinivasa Catering" class="h-20 w-auto mb-6 opacity-90 transition-all">
+                <a href="index.html" class="inline-block mb-6">
+                    <img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto opacity-90 transition-all hover:scale-105">
+                </a>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
                     Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
                 </p>
@@ -97,7 +328,7 @@
                 <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
                 <ul class="space-y-4 text-gray-400">
                     <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Services</a></li>
                     <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
                     <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
                 </ul>
@@ -152,7 +383,7 @@
     </footer>
 
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: false, offset: 80, easing: 'ease-in-out', mirror: true, disable: false });
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -165,3 +396,4 @@
     </a>
 </body>
 </html>
+

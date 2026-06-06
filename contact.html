@@ -25,7 +25,7 @@
         
         <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
             <a href="index.html" class="hover:text-gold transition-colors">Home</a>
-            <a href="menu.html" class="hover:text-gold transition-colors">Menu</a>
+            <a href="menu.html" class="hover:text-gold transition-colors">Services</a>
             <a href="about.html" class="hover:text-gold transition-colors">About</a>
             <a href="contact.html" class="text-gold border-b border-gold transition-colors">Contact</a>
             <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
@@ -42,7 +42,7 @@
     <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
         <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
         <a href="index.html" class="hover:text-gold">Home</a>
-        <a href="menu.html" class="hover:text-gold">Menu</a>
+        <a href="menu.html" class="hover:text-gold">Services</a>
         <a href="about.html" class="hover:text-gold">About</a>
         <a href="contact.html" class="hover:text-gold">Contact</a>
     </div>
@@ -77,10 +77,23 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <input type="date" class="w-full bg-black border border-gray-800 p-4 rounded-lg text-white">
-                            <select class="w-full bg-black border border-gray-800 p-4 rounded-lg">
+                            <select id="guest-select" class="w-full bg-black border border-gray-800 p-4 rounded-lg">
+                                <option disabled selected>Number of Guests</option>
                                 <option>50 - 100 Guests</option>
                                 <option>100 - 300 Guests</option>
                                 <option>300+</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-1 gap-6">
+                            <select id="service-select" class="w-full bg-black border border-gray-800 p-4 rounded-lg text-white">
+                                <option disabled selected>Select Service</option>
+                                <option>Wedding Catering</option>
+                                <option>Corporate Events</option>
+                                <option>Birthday Parties</option>
+                                <option>Special Occasions</option>
+                                <option>Bulk Food Supply</option>
+                                <option>Daily Curry Point Supply</option>
+                                <option>Festival Catering</option>
                             </select>
                         </div>
                         <textarea rows="4" placeholder="Message" class="w-full bg-black border border-gray-800 p-4 rounded-lg"></textarea>
@@ -95,7 +108,9 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Column 1: Logo & About -->
             <div data-aos="fade-up">
-                <img src="/assets/logo.png" alt="Srinivasa Catering" class="h-20 w-auto mb-6 opacity-90 transition-all">
+                <a href="index.html" class="inline-block mb-6">
+                    <img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto opacity-90 transition-all hover:scale-105">
+                </a>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
                     Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
                 </p>
@@ -111,7 +126,7 @@
                 <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
                 <ul class="space-y-4 text-gray-400">
                     <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Services</a></li>
                     <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
                     <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
                 </ul>
@@ -166,12 +181,30 @@
     </footer>
 
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: false, offset: 80, easing: 'ease-in-out', mirror: true, disable: false });
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
         closeBtn.onclick = () => mobileMenu.classList.add('hidden');
+
+        // Service Selection Param Parser
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            if (serviceParam) {
+                const serviceSelect = document.getElementById('service-select');
+                if (serviceSelect) {
+                    if (serviceParam === 'wedding') serviceSelect.value = 'Wedding Catering';
+                    else if (serviceParam === 'corporate') serviceSelect.value = 'Corporate Events';
+                    else if (serviceParam === 'birthday') serviceSelect.value = 'Birthday Parties';
+                    else if (serviceParam === 'special') serviceSelect.value = 'Special Occasions';
+                    else if (serviceParam === 'bulk') serviceSelect.value = 'Bulk Food Supply';
+                    else if (serviceParam === 'curry') serviceSelect.value = 'Daily Curry Point Supply';
+                    else if (serviceParam === 'festival') serviceSelect.value = 'Festival Catering';
+                }
+            }
+        });
     </script>
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917032677750" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform pulse-animation" target="_blank">
@@ -179,3 +212,4 @@
     </a>
 </body>
 </html>
+

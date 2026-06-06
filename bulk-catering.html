@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Food Supply Catering Menu | SRINIVASA COOKING AND CATERING</title>
+    <meta name="description" content="Explore our premium bulk food supply catering menus. Switch between our exquisite Veg and Non-Veg traditional options tailored for your grand gathering.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F2E2A1',
+                        dark: '#000000',
+                        'dark-bg': '#121212',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #menu-veg > div, 
+        #menu-nonveg > div {
+            background-color: #FAF8F5 !important;
+            border: 2px solid rgba(212, 175, 55, 0.35) !important;
+            transition: all 0.3s ease !important;
+        }
+        #menu-veg > div:hover, 
+        #menu-nonveg > div:hover {
+            border-color: #D4AF37 !important;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.18) !important;
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-[#ffffff] text-[#171717] selection:bg-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto">
+        </a>
+        
+        <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
+            <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+            <a href="menu.html" class="hover:text-gold transition-colors">Menu</a>
+            <a href="about.html" class="hover:text-gold transition-colors">About</a>
+            <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
+            <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
+        </div>
+
+        <div class="lg:hidden">
+            <button id="mobile-menu-btn" class="text-gold text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
+        <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="hover:text-gold">Home</a>
+        <a href="menu.html" class="hover:text-gold">Menu</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+    </div>
+
+    <main class="pb-16 bg-[#fafafa]">
+        <!-- Bulk Food Supply Hero Section -->
+        <section class="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden mb-12">
+            <div class="absolute inset-0 z-0">
+                <img src="/assets/bulk_service.png" alt="Bulk Food Supply Background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/60 hero-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-4 max-w-4xl mt-20 md:mt-24" data-aos="zoom-in" data-aos-duration="1200">
+                <p class="text-gold uppercase tracking-[0.3em] mb-2 text-xs md:text-sm font-semibold" style="color: #D4AF37 !important;">Exquisite Bulk Food Feasts</p>
+                <h1 class="text-4xl md:text-6xl font-bold font-serif text-white leading-tight" style="color: #ffffff !important; text-shadow: 0 2px 12px rgba(0,0,0,0.85) !important;">Bulk Food Supply Menu</h1>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+        </section>
+
+        <!-- Intro Description Section -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center mb-10" data-aos="fade-up">
+            <p class="text-zinc-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                Elevating your large gatherings and corporate staff meals with custom-curated traditional cuisines in bulk quantity. Use the toggle below to browse our Veg and Non-Veg bulk selections.
+            </p>
+        </div>
+
+        <!-- Veg / Non-Veg Toggle Buttons -->
+        <div class="flex justify-center mb-16 px-4" data-aos="fade-up">
+            <div class="inline-flex p-1.5 bg-[#FAF8F5] rounded-full shadow-md border-2 border-gold gap-1 md:gap-2">
+                <button id="btn-veg" class="flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 bg-gold text-black shadow-sm">
+                    <i class="fa-solid fa-leaf text-base"></i> Veg Menu
+                </button>
+                <button id="btn-nonveg" class="flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 text-zinc-500 hover:text-zinc-800">
+                    <i class="fa-solid fa-drumstick-bite text-base"></i> Non-Veg Menu
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Content Wrapper -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <!-- VEG MENU SECTION -->
+            <div id="menu-veg" class="transition-all duration-500 transform translate-y-0 opacity-100 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Category 1: Salads -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Salads</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Green Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Russian Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Leafy Citrus Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">American Corn Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Three Bean Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Black Chana Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Asian Cucumber Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Boiled Vegetable Salad with Lemon Dressing</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cucumber Yogurt Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Papdi Chaat</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alu Chana Chaat</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Welcome Drinks -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-martini-glass-citrus text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Welcome Drinks</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mint Mojito</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Blue Curacao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Watermelon Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pineapple Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Black Grape Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Fruit Punch</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Spicy Mocktail</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Seasonal Mango Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mix Fruit Mojito</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Strawberry Lemonade</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Starters -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-utensils text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Starters</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Nellore Vada</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alasanda Vadalu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Telangana Mokkajonna Vada</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Masala Vada</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Perugu Vada</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Minapa Garelu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Onion Stuffed Mirchi Baji</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Veg Lollipops</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Manchurian</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vegetable Manchurian</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Veg Manchurian Cut Mirchi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Corn Samosa</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Veg Cutlet</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Veg Bullets</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Spring Rolls</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Salt & Pepper Baby Corn</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alu Tikki</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Corn Nuggets</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cheese Corn Balls</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Baji (Tamalapaku, Green Chilli, Aloo, Banana)</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Main Course - South Indian -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-rice text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Main Course - South Indian</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gutti Vankaya Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kothimeera Vankaya Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mulakada Jeedipappu Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chikkudukaya Tomato Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Brinjal Tomato Drumstick Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cucumber Tomato Drumstick Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mulakkai Malai Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mushroom Cashew Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Capsicum Tomato Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dosakai Alu Tomato Iguru</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gummadikaya Pulusu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chamagadda Pulusu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Aratikaya Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mixed Vegetable Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vankai Batani Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vada Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Aviyal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Sorakai Palu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Berakaya Senagapappu Curry</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: Main Course - North Indian -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-hot-tub-person text-xl"></i> <!-- Replaced with soup/bowl for non-pro -->
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Main Course - North Indian</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Butter Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kadai Paneer</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Palak Paneer</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Tikka Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Shahi Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Malai Kofta Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dum Alu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Jeera Aloo</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alu Gobi Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alu Mutter Paneer Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rajma Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chole Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Veg Kolhapuri</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gobi Matar Tomato Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kaddu Kofta Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Phool Makhana Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Capsicum Cashew Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Chaman</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Corn Palak</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Malai Mutter</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Ginger Baby Corn</span>
+                    </div>
+                </div>
+
+                <!-- Category 6: Flavoured Rice -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-wheat-awn text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Flavoured Rice</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vegetable Dum Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vegetable Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Meal Maker Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mushroom Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Jack Fruit Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Corn Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Green Peas Cashew Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vegetable Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Corn Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Jeera Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Coconut Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tomato Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Palak Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Bagara Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pudina Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gongura Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Karivepaku Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pulihora (Tamarind/Mango/Lemon)</span>
+                    </div>
+                </div>
+
+                <!-- Category 7: Dal Preparations -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-hot text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Dal Preparations</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Palak Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gongura Pappu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dosakai Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chukkakura Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rajma Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mudda Pappu + Dappalam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Lemon Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dal Makhani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dal Tadka</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dal Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Dal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tomato Pesarapappu</span>
+                    </div>
+                </div>
+
+                <!-- Category 8: Rasam & Liquids -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-mug-hot text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Rasam & Liquids</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kothimeera Rasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Nellore Rasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Beetroot Rasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pineapple Rasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Lemon Rasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Perugu Charu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Madras Sambar</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mulakkal Sambar</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pesara Pappucharu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Perugu Pachadi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pachipulusu</span>
+                    </div>
+                </div>
+
+                <!-- Category 9: Dry Items / Fry -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-fire text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Dry Items / Fry</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gutti Vankaya Special</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Special Alu Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Alu Allam Green Mirchi Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Bendi Cashew Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Raw Banana Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kakarakaya Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Beerakai Bobbarla Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Goru Chikkudu Coconut Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kanda Pusa</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Aratikaya Chips</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Carrot Beans Poriyal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cabbage Beans Poriyal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gobi 65</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gobi Peas Fry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mixed Vegetable Poriyal</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dondakai Vepudu</span>
+                    </div>
+                </div>
+
+                <!-- Category 10: Chutneys -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-food text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Chutneys</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tomato Kothimeera Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Thotakura Onion Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dondakaya Kobari Pachadi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Coconut Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pudina Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pudina Kobbari Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dosakai Mukkala Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mango Turumu Chutney</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gongura Onion Pachadi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chintakai Chutney</span>
+                    </div>
+                </div>
+
+                <!-- Category 11: Indian Breads -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-circle text-xl"></i> <!-- Replaced roti with circle/plate -->
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Indian Breads</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pulka</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Poori</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Naan</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Butter Naan</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rumali Roti</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tandoori Roti</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Plain Kulcha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Masala Kulcha</span>
+                    </div>
+                </div>
+
+                <!-- Category 12: Desserts -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-cookie-bite text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Desserts</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gulab Jamun</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kala Jamun</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rasmalai</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rasgulla</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Double Ka Meetha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Badusha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chakkara Pongali</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Bobbatlu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Halwa (Beetroot/Carrot/Gummadikaya)</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Jalebi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rice Payasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Malai Puri</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rava Kesari</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kaddu Ka Kheer</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Poonalu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tapeswaram Kaja</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Laddu (Boondi/Motichoor)</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Malpua</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Jalebi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Apricot Delight</span>
+                    </div>
+                </div>
+
+                <!-- Category 13: Ice Creams -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-ice-cream text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Ice Creams</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vanilla</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Strawberry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Butter Scotch</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chocolate</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mango</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pista</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rajbhog</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pan Masala</span>
+                    </div>
+                </div>
+
+                <!-- Category 14: Accompaniments -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-plate-wheat text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Accompaniments</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Steamed Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Ghee</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Curd / Raita</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Assorted Podis & Red Pickles</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Assorted Papads & Vadiyams</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Curd Chillies</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Branded Water Bottles</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Sweet Paan</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- NON-VEG MENU SECTION -->
+            <div id="menu-nonveg" class="hidden transition-all duration-500 transform translate-y-4 opacity-0 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Category 1: Salads -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Salads</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Green Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">American Corn Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Asian Cucumber Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Black Chana Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Boiled Vegetable Salad with Lemon Dressing</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cucumber Yogurt Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">German Potato Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kosambari Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Leafy Citrus Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Papdi Chaat</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Russian Salad</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Three Bean Salad</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Welcome Drinks -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-martini-glass-citrus text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Welcome Drinks</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mint Mojito</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Blue Curaçao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Watermelon Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pineapple Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Black Grape Juice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Fresh Fruit Punch</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Spicy Mocktail</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Seasonal Mango</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mixed Fruit Mojito</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Strawberry Lemonade</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Fresh Lemonade</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Coconut Water</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Guava Blast</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Shirley Temple</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Aerated Soft Drinks</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Non-Veg Starters -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-utensils text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Non-Veg Starters</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Bhimavaram Kodi Vepudu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kodi Roast</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken 65</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Karivepaku Kodi Vepudu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Samosa</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Miryala Kodi Vepudu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Garlic Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Manchurian</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Karimnagar Wings</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Crispy Fried Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Ginger Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Pakoda</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Green Chilli Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pepper Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chilli Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Apollo Fish</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Peri Peri Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kheema Samosa</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Nuggets</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Fingers</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Fish Fingers</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Non-Veg Biryanis & Pulaos -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-rice text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Non-Veg Biryanis & Pulaos</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Hyderabadi Chicken Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Ulavacharu Chicken Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Ambur Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Avakai Chicken Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kheema Dum Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Dum Biryani (Nizami Style)</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Guntur Mutton Bilal Biryani</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Pulav</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chitti Muthyalu Kodi Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Konaseema Kodi Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Raju Gari Kodi Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gongura Kodi Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Pulao</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mastan Kheema Pulao</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: Biryani Combos -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-plate-wheat text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Biryani Combos</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Biryani + Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Biryani + Chicken Curry</span>
+                    </div>
+                </div>
+
+                <!-- Category 6: Chicken Curries -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-hot text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Chicken Curries</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Home Style Chicken Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kodi Pulusu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Iguru</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Allam Kodi Iguru</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kothimeera Kodi Kura</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pachi Mirchi Kodi Kura</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mirapakaya Kodi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mango Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Punjabi Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Butter Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kadai Chicken</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mughlai Chicken Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Cashew Chicken Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chicken Kaali Mirchi Curry</span>
+                    </div>
+                </div>
+
+                <!-- Category 7: Mutton Curries -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-bowl-hot text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Mutton Curries</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mango Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Pulusu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mulakkada Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Village Style Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Dosakai Mutton</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Telangana Mutton Curry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Dalcha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Rogan Josh</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mutton Kurma</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gongura Mutton</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chukkakoora Mutton</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Methi Mutton Kurma</span>
+                    </div>
+                </div>
+
+                <!-- Category 8: Egg Items -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-egg text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Egg Items</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Egg Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Egg Fry</span>
+                    </div>
+                </div>
+
+                <!-- Category 9: Desserts -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-cookie-bite text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Desserts</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Gulab Jamun</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kala Jamun</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rasmalai</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rasgulla</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Double Ka Meetha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Badusha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Bobbatlu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chakkara Pongali</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Halwa (Beetroot/Carrot/Gummadikaya)</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Jalebi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rice Payasam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Malai Puri</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rava Kesari</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Kaddu Ka Kheer</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Khubani Ka Meetha</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Laddu (Boondi/Motichoor)</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Malpua</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Paneer Jalebi</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pala Talikalu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Poornalu</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rava Poornam</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Tapeshwaram Kaja</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Apricot Delight</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Junnu</span>
+                    </div>
+                </div>
+
+                <!-- Category 10: Ice Creams -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-ice-cream text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Ice Creams</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Vanilla</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Strawberry</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Butter Scotch</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chocolate</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Mango</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pista</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Rajbhog</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Pan Masala</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Belgian Dark Chocolate</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Hazelnut</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Roasted Almond</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Shahi Gulab Jamun</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Banana Caramel</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Chickoo</span>
+                    </div>
+                </div>
+
+                <!-- Category 11: Accompaniments -->
+                <div class="bg-[#FAF8F5] border border-[#E5DCC6]/40 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-4 mb-6 border-b border-[#EAE5DB]/60 pb-4">
+                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37]">
+                            <i class="fa-solid fa-plate-wheat text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-wide text-zinc-900 font-serif">Accompaniments</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Steamed Rice</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Ghee</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Curd / Raita</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Assorted Pickles</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Assorted Papads</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Curd Chillies</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Branded Water Bottles</span>
+                        <span class="bg-[#FDFBF7] text-zinc-800 border border-[#EFEBE4] px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold hover:border-[#D4AF37] hover:bg-white transition-colors">Sweet Paan</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Custom Quote Section -->
+        <section class="py-16 px-6 mt-16 bg-[#ffffff] border-t border-zinc-200/60 text-center">
+            <h3 class="text-3xl font-bold font-serif mb-4 text-zinc-900">Like What You See?</h3>
+            <p class="text-zinc-500 max-w-xl mx-auto mb-8 text-sm md:text-base leading-relaxed">
+                Request a customized quote for your event — we can tailor any menu to fit your needs, preferences, and guests perfectly.
+            </p>
+            <a href="contact.html" class="btn-premium inline-block px-10 py-4 font-bold text-sm uppercase tracking-wider">Request Free Quote</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 md:px-12 border-t border-gray-900 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Column 1: Logo & About -->
+            <div data-aos="fade-up">
+                <a href="index.html" class="inline-block mb-6">
+                    <img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto opacity-90 transition-all hover:scale-105">
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
+                </p>
+                <div class="flex space-x-5 text-xl">
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Services</h4>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="wedding-catering.html" class="hover:text-gold transition-colors">Wedding Catering</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Corporate Events</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Birthday Parties</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Special Occasions</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Private Dining</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Contact Us</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-gold mt-1"></i>
+                        <span>Gowlidoddi journalist colony, Vivekananda Nagar, Vatinagulapally (MD), Ranga Reddy district. Opp: Yeallama Pochama Temple</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-gold"></i>
+                        <span>+91 70326 77750, 70326 77751</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-gold"></i>
+                        <span>info@srinivasacatering.com</span>
+                    </li>
+                    <li class="pt-4">
+                        <a href="https://wa.me/917032677750" target="_blank" class="flex items-center gap-2 text-green-500 font-semibold hover:opacity-80 transition-opacity">
+                            <i class="fab fa-whatsapp text-2xl"></i> Chat with us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium tracking-wider uppercase">
+            <p>© 2026 SRINIVASA COOKING AND CATERING. All rights reserved.</p>
+            <p>Powered by <a href="https://codtechitsolutions.com/" target="_blank" class="text-gold hover:underline transition-all">CODTECH IT SOLUTIONS</a></p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-gold transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917032677750" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform pulse-animation" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({ duration: 800, once: false, offset: 80, easing: 'ease-in-out', mirror: true, disable: false });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuBtn && closeBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+                closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            // Toggle Veg / Non-Veg Menu
+            const btnVeg = document.getElementById('btn-veg');
+            const btnNonVeg = document.getElementById('btn-nonveg');
+            const menuVeg = document.getElementById('menu-veg');
+            const menuNonVeg = document.getElementById('menu-nonveg');
+
+            if (btnVeg && btnNonVeg && menuVeg && menuNonVeg) {
+                btnVeg.addEventListener('click', () => {
+                    // Update active button state
+                    btnVeg.className = "flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 bg-gold text-black shadow-sm";
+                    btnNonVeg.className = "flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 text-zinc-500 hover:text-zinc-800";
+                    
+                    // Show Veg, Hide Non-Veg with elegant animation
+                    menuNonVeg.classList.add('hidden');
+                    menuNonVeg.classList.remove('opacity-100', 'translate-y-0');
+                    menuNonVeg.classList.add('opacity-0', 'translate-y-4');
+                    
+                    menuVeg.classList.remove('hidden');
+                    // Trigger reflow to let CSS register state change
+                    void menuVeg.offsetWidth;
+                    menuVeg.classList.remove('opacity-0', 'translate-y-4');
+                    menuVeg.classList.add('opacity-100', 'translate-y-0');
+                    AOS.refresh();
+                });
+
+                btnNonVeg.addEventListener('click', () => {
+                    // Update active button state
+                    btnNonVeg.className = "flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 bg-gold text-black shadow-sm";
+                    btnVeg.className = "flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs md:text-sm transition-all duration-300 text-zinc-500 hover:text-zinc-800";
+                    
+                    // Show Non-Veg, Hide Veg with elegant animation
+                    menuVeg.classList.add('hidden');
+                    menuVeg.classList.remove('opacity-100', 'translate-y-0');
+                    menuVeg.classList.add('opacity-0', 'translate-y-4');
+                    
+                    menuNonVeg.classList.remove('hidden');
+                    // Trigger reflow to let CSS register state change
+                    void menuNonVeg.offsetWidth;
+                    menuNonVeg.classList.remove('opacity-0', 'translate-y-4');
+                    menuNonVeg.classList.add('opacity-100', 'translate-y-0');
+                    AOS.refresh();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | SRINIVASA COOKING AND CATERING</title>
+    <title>Services | SRINIVASA COOKING AND CATERING</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,7 +39,7 @@
         
         <div class="hidden lg:flex space-x-8 items-center text-sm font-semibold tracking-widest uppercase">
             <a href="index.html" class="hover:text-gold transition-colors">Home</a>
-            <a href="menu.html" class="text-gold border-b border-gold transition-colors">Menu</a>
+            <a href="menu.html" class="text-gold border-b border-gold transition-colors">Services</a>
             <a href="about.html" class="hover:text-gold transition-colors">About</a>
             <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
             <a href="contact.html" class="btn-premium py-2 px-6">Book Your Event</a>
@@ -56,52 +56,92 @@
     <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl uppercase tracking-widest">
         <button id="close-menu" class="absolute top-6 right-6 text-gold"><i class="fas fa-times"></i></button>
         <a href="index.html" class="hover:text-gold">Home</a>
-        <a href="menu.html" class="hover:text-gold">Menu</a>
+        <a href="menu.html" class="hover:text-gold">Services</a>
         <a href="about.html" class="hover:text-gold">About</a>
         <a href="contact.html" class="hover:text-gold">Contact</a>
     </div>
 
-    <main class="pt-52">
-        <!-- Menu Section -->
-        <section id="menu" class="py-12 px-6 md:px-12">
+    <main class="pt-32 pb-16">
+        <!-- Services Section -->
+        <section id="services" class="py-12 px-6 md:px-12">
             <div class="text-center mb-16" data-aos="zoom-in">
-                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Menu</h2>
-                <h3 class="text-4xl md:text-5xl font-bold">A Culinary Journey</h3>
-                <div class="w-16 h-1 bg-gold mx-auto mt-4 mb-8"></div>
-                
-                <!-- New details from image -->
-                <div class="flex flex-col items-center gap-6 mb-12">
-                    <div class="flex items-center gap-8 bg-dark-bg/50 px-10 py-4 rounded-full border border-gray-800">
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 border-2 border-green-600 flex items-center justify-center p-1 rounded-sm"><div class="w-full h-full bg-green-600 rounded-full"></div></div>
-                            <span class="font-bold tracking-widest text-lg">VEG</span>
-                        </div>
-                        <div class="w-px h-6 bg-gray-700"></div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 border-2 border-red-600 flex items-center justify-center p-1 rounded-sm"><div class="w-full h-full bg-red-600 rounded-full"></div></div>
-                            <span class="font-bold tracking-widest text-lg">NON VEG</span>
-                        </div>
-                    </div>
-                    <p class="text-xl md:text-2xl text-gold-light font-medium italic tracking-wide">
-                        "We Undertake All Types of Events, Cooking & Catering Services"
-                    </p>
-                </div>
+                <h2 class="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Offerings</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Premium Catering Services</h3>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="menu-tab-btn active px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">North Indian</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">South Indian</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Continental</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Tandoori</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Chinese</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Halwai</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Bakery</button>
-                <button class="menu-tab-btn px-6 py-2 rounded-full border border-gold font-semibold uppercase tracking-wider">Pantry</button>
-            </div>
-
-            <div id="menu-items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Javascript will populate this -->
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                 <!-- Wedding -->
+                 <div class="service-card-wedding bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up">
+                     <i class="fas fa-heart service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Wedding Catering</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Making your special day even more unforgettable with a feast fit for royalty.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="wedding-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=wedding" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Corporate -->
+                 <div class="service-card-corporate bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                     <i class="fas fa-city service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Corporate Events</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Impress your clients and colleagues with professional and delicious layouts.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="corporate-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=corporate" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Birthday -->
+                 <div class="service-card-birthday bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                     <i class="fas fa-birthday-cake service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Birthday Parties</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Celebrate life's milestones with delightful dishes that everyone loves.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="birthday-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=birthday" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Special Occasions -->
+                 <div class="service-card-special bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                     <i class="fas fa-star service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Special Occasions</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Custom menus and exceptional service for housewarmings and gatherings.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="special-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=special" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Bulk Food Supply -->
+                 <div class="service-card-bulk bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                     <i class="fas fa-boxes-stacked service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Bulk Food Supply</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">High-volume gourmet food supply for large corporations, institutions, and gatherings.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="bulk-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=bulk" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Daily Curry Point Supply -->
+                 <div class="service-card-curry bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                     <i class="fa-solid fa-bowl-food service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Daily Curry Point Supply</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Daily fresh supply of delicious premium curries and traditional gravies to food retail outlets.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="curry-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=curry" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+                 <!-- Festival Catering Services -->
+                 <div class="service-card-festival bg-black p-10 gold-border card-hover text-center flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                     <i class="fas fa-om service-icon"></i>
+                     <h4 class="text-xl font-bold mb-4">Festival Catering</h4>
+                     <p class="text-gray-400 text-sm leading-relaxed">Pure traditional menus and ritual-compliant catering for all religious festivals and poojas.</p>
+                     <div class="flex flex-col gap-3 mt-auto pt-6">
+                         <a href="festival-catering.html" class="btn-card-more inline-block py-2 border border-gold text-gold rounded-full text-xs font-semibold uppercase tracking-wider transition-all hover:bg-gold hover:text-black">View Menu</a>
+                         <a href="contact.html?service=festival" class="inline-block py-2 bg-gold text-black rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-gold-light hover:scale-105">Book Now</a>
+                     </div>
+                 </div>
+             </div>
         </section>
     </main>
 
@@ -109,7 +149,9 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Column 1: Logo & About -->
             <div data-aos="fade-up">
-                <img src="/assets/logo.png" alt="Srinivasa Catering" class="h-20 w-auto mb-6 opacity-90 transition-all">
+                <a href="index.html" class="inline-block mb-6">
+                    <img src="/assets/logo.png" alt="Srinivasa Catering Logo" class="h-16 md:h-32 w-auto opacity-90 transition-all hover:scale-105">
+                </a>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
                     Elevating your special moments with elite taste and professional excellence. From grand weddings to major corporate gatherings, we bring the royal feast to your table.
                 </p>
@@ -125,7 +167,7 @@
                 <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
                 <ul class="space-y-4 text-gray-400">
                     <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-gold transition-colors">Food Menu</a></li>
+                    <li><a href="menu.html" class="hover:text-gold transition-colors">Services</a></li>
                     <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
                     <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
                 </ul>
@@ -181,97 +223,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({ duration: 1000, once: true });
-
-            const tabBtns = document.querySelectorAll('.menu-tab-btn');
-            const menuItems = [
-                {
-                    category: 'North Indian',
-                    items: [
-                        { name: 'Butter Chicken', img: '/assets/butter-chicken.png', desc: 'Creamy tomato-based chicken curry with rich flavors.' },
-                        { name: 'Paneer Tikka', img: '/assets/paneer-tikka.png', desc: 'Grilled paneer cubes marinated in spices.' },
-                        { name: 'Dal Makhani', img: '/assets/dal-makhani.png', desc: 'Slow-cooked black lentils in creamy gravy.' },
-                        { name: 'Malai Kofta', img: '/assets/malai-kofta.png', desc: 'Fried potato and paneer balls in rich tomato gravy.' },
-                        { name: 'Mutton Rogan Josh', img: '/assets/mutton-rogan-josh.png', desc: 'Aromatic lamb curry with ginger and garlic.' }
-                    ]
-                },
-                {
-                    category: 'South Indian',
-                    items: [
-                        { name: 'Masala Dosa', img: '/assets/masala-dosa.png', desc: 'Crispy dosa with spiced potato filling.' },
-                        { name: 'Idli & Sambar', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=2070&auto=format&fit=crop', desc: 'Soft rice cakes with hot lentil vegetable stew.' }
-                    ]
-                },
-                {
-                    category: 'Continental',
-                    items: [
-                        { name: 'Grilled Salmon', img: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=2070&auto=format&fit=crop', desc: 'Juicy grilled salmon with herbs.' },
-                        { name: 'Pasta Alfredo', img: 'https://images.unsplash.com/photo-1645112481338-3560e949ac1a?q=80&w=2070&auto=format&fit=crop', desc: 'Creamy white sauce pasta delight.' }
-                    ]
-                },
-                {
-                    category: 'Tandoori',
-                    items: [
-                        { name: 'Tandoori Chicken', img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=2070&auto=format&fit=crop', desc: 'Spicy roasted chicken from clay oven.' },
-                        { name: 'Naan', img: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=2070&auto=format&fit=crop', desc: 'Soft and fluffy tandoor-baked bread.' }
-                    ]
-                },
-                {
-                    category: 'Chinese',
-                    items: [
-                        { name: 'Schezwan Fried Rice', img: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=2070&auto=format&fit=crop', desc: 'Spicy fried rice with exotic vegetables and sauce.' },
-                        { name: 'Manchurian', img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=2070&auto=format&fit=crop', desc: 'Deep-fried vegetable balls in a spicy gravy.' }
-                    ]
-                },
-                {
-                    category: 'Halwai',
-                    items: [
-                        { name: 'Gulab Jamun', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?q=80&w=2070&auto=format&fit=crop', desc: 'Deep-fried milk dumplings in sugar syrup.' },
-                        { name: 'Jalebi', img: 'https://images.unsplash.com/photo-1593708602414-06c3a162232a?q=80&w=2070&auto=format&fit=crop', desc: 'Crispy fermented batter swirls in syrup.' }
-                    ]
-                },
-                {
-                    category: 'Bakery',
-                    items: [
-                        { name: 'Fresh Fruit Cake', img: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=2070&auto=format&fit=crop', desc: 'Light sponge cake topped with seasonal fruits.' },
-                        { name: 'Puff Pastry', img: 'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=2070&auto=format&fit=crop', desc: 'Flaky baked pastry with savory or sweet filling.' }
-                    ]
-                },
-                {
-                    category: 'Pantry',
-                    items: [
-                        { name: 'Pickles & Preserves', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?q=80&w=2070&auto=format&fit=crop', desc: 'Homemade traditional Indian pickles and fruit preserves.' },
-                        { name: 'Spices Mix', img: 'https://images.unsplash.com/photo-1596797038530-2c39da0b7ac7?q=80&w=2070&auto=format&fit=crop', desc: 'Our secret blend of hand-ground Indian masalas.' }
-                    ]
-                }
-            ];
-
-            function updateMenu(category) {
-                const container = document.getElementById('menu-items-grid');
-                const data = menuItems.find(c => c.category === category);
-                if (!container || !data) return;
-                
-                container.innerHTML = '';
-                data.items.forEach((item, index) => {
-                    const card = `<div class="bg-black rounded-xl overflow-hidden gold-border card-hover" data-aos="fade-up" data-aos-delay="${index * 100}">
-                        <div class="h-56 bg-gray-800 overflow-hidden"><img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"></div>
-                        <div class="p-6"><h5 class="text-xl font-bold text-gold mb-2">${item.name}</h5><p class="text-gray-400 text-sm">${item.desc}</p></div>
-                    </div>`;
-                    container.insertAdjacentHTML('beforeend', card);
-                });
-                AOS.refresh();
-            }
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    updateMenu(btn.innerText.trim());
-                });
-            });
-
-            // Initialize with first category
-            updateMenu('North Indian');
+            AOS.init({ duration: 800, once: false, offset: 80, easing: 'ease-in-out', mirror: true, disable: false });
 
             const menuBtn = document.getElementById('mobile-menu-btn');
             const closeBtn = document.getElementById('close-menu');
@@ -286,3 +238,4 @@
     </a>
 </body>
 </html>
+

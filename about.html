@@ -96,19 +96,19 @@
         <section class="stats-bar bg-gold py-10 px-6">
             <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-black">
                 <div data-aos="zoom-in">
-                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">15+</p>
+                    <p class="text-4xl md:text-5xl font-bold stat-number" data-target="15" data-suffix="+" style="color:#000000 !important">0+</p>
                     <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Years of Experience</p>
                 </div>
                 <div data-aos="zoom-in" data-aos-delay="100">
-                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">5000+</p>
+                    <p class="text-4xl md:text-5xl font-bold stat-number" data-target="5000" data-suffix="+" style="color:#000000 !important">0+</p>
                     <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Events Catered</p>
                 </div>
                 <div data-aos="zoom-in" data-aos-delay="200">
-                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">50,000+</p>
+                    <p class="text-4xl md:text-5xl font-bold stat-number" data-target="50000" data-suffix="+" data-format="comma" style="color:#000000 !important">0+</p>
                     <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Happy Guests</p>
                 </div>
                 <div data-aos="zoom-in" data-aos-delay="300">
-                    <p class="text-4xl md:text-5xl font-bold" style="color:#000000 !important">7</p>
+                    <p class="text-4xl md:text-5xl font-bold stat-number" data-target="7" data-suffix="" style="color:#000000 !important">0</p>
                     <p class="text-sm font-semibold uppercase tracking-widest mt-1" style="color:#000000 !important">Catering Services</p>
                 </div>
             </div>
@@ -389,6 +389,62 @@
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
         closeBtn.onclick = () => mobileMenu.classList.add('hidden');
+
+        // Stats Bar Counting Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const animateCount = (el) => {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                const suffix = el.getAttribute('data-suffix') || '';
+                const format = el.getAttribute('data-format') || '';
+                
+                const duration = 2000; // Animation duration in ms
+                const startTime = performance.now();
+                
+                const updateNumber = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out quadratic
+                    const easeProgress = progress * (2 - progress);
+                    const currentVal = Math.floor(easeProgress * target);
+                    
+                    // Format with commas if requested
+                    let displayVal = currentVal;
+                    if (format === 'comma') {
+                        displayVal = currentVal.toLocaleString('en-US'); // e.g. 50,000
+                    }
+                    
+                    el.textContent = displayVal + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        // Ensure final value is exactly correct
+                        let finalVal = target;
+                        if (format === 'comma') {
+                            finalVal = target.toLocaleString('en-US');
+                        }
+                        el.textContent = finalVal + suffix;
+                    }
+                };
+                
+                requestAnimationFrame(updateNumber);
+            };
+
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetEl = entry.target;
+                        animateCount(targetEl);
+                        observer.unobserve(targetEl); // Run animation once
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            statNumbers.forEach(num => statsObserver.observe(num));
+        });
     </script>
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917032677750" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform pulse-animation" target="_blank">
